@@ -3,7 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const  expressLayouts = require('express-ejs-layouts');
 const connectDB = require('./server/config/dbLogic');
-
+const session = require('express-session');
+const flash = require('connect-flash');
 const app = express();
 const port = 5000 || process.env.PORT;
 
@@ -15,6 +16,20 @@ app.use(express.json());
 
 // Static files
 app.use(express.static('public'))
+
+// App Sessions
+app.use(
+    session({
+        secret: 'secret',
+        resave: false,
+        saveUinitialized: true,
+        cookie: {
+            maxAge: 1000 * 60 * 50 * 24 * 7
+        }}))
+
+// Flash Messages
+app.use(flash())
+
 // Templating Engine
 app.use(expressLayouts)
 app.set('layout', './layout/main');
