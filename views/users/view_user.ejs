@@ -1,0 +1,89 @@
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><%= user_info.firstName  %> <%= user_info.lastName  %></h1>
+    <div class="btn-toolbar mb-2 mb-md 0">
+      <div class="btn-group me-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col py-3">
+  
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+            <li class="breadcrumb-item active"><%= user_info.firstName  %></li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col text-end fw-lighter flex-md">
+          <b>Last Updated <%= new Date(user_info.updateAt).toUTCString() %> </b> <br>
+          <b id="userID-View" onclick="viwers()">UserId: view</b>
+          <p id="P-view" style="display: none;" onclick="closer()">  <%= user_info._id %></p>
+          <b id="xs" onclick="closer()"></b>
+          <script>
+            let userID = document.getElementById("userID-View")
+            let pname = document.getElementById("P-view")
+            const viwers = ()=> {
+                pname.style.display = 'block'
+            }
+
+            const closer = ()=> {
+                pname.style.display = 'none'
+            }
+
+
+          </script>
+      </div>
+    </div>
+  
+  </div>
+  
+  <ul class="list-group">
+  
+    <li class="list-group-item"> 
+      <div class="row">
+        <div class="col" style="max-width: 140px"> <b>Name:</b></div>
+        <div class="col"><%= user_info.firstName %> <%= user_info.lastName %></div>
+      </div>
+    </li>
+  
+    <li class="list-group-item"> 
+      <div class="row">
+        <div class="col" style="max-width: 140px"> <b>Phone:</b></div>
+        <div class="col"><%= user_info.phone %></div>
+      </div>
+    </li>
+  
+    <li class="list-group-item"> 
+      <div class="row">
+        <div class="col" style="max-width: 140px"> <b>Email:</b></div>
+        <div class="col"><%= user_info.email %></div>
+      </div>
+    </li>
+  
+    <li class="list-group-item"> 
+      <div class="row">
+        <div class="col" style="max-width: 140px"> <b>Details:</b></div>
+        <div class="col"><%= user_info.details %></div>
+      </div>
+    </li>
+  
+    <li class="list-group-item"> 
+      <div class="row">
+        <div class="col" style="max-width: 140px"> <b>Date Created:</b></div>
+        <div class="col"><%= user_info.createdAT %></div>
+      </div>
+    </li>
+  
+    <li class="list-group-item"> 
+      <div class="row">
+        <div class="col" style="max-width: 140px"> <b>Date Modified:</b></div>
+        <div class="col"><%= user_info.updateAt %></div>
+      </div>
+    </li>
+  
+  </ul>

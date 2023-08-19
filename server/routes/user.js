@@ -9,5 +9,18 @@ router.get('/', userController.dashboard)
 router.get('/add', userController.add_user)
 router.post('/add', userController.post_add_user)
 
+//View
+router.get('/view/:id', userController.view_user)
+
+// Edit
+router.get('/edit/:id', userController.edit)
+router.post('/edit/:id', userController.post_edit)
+
+// Delete
+router.post('/delete/:id', userController.deleteUser)
+
+// Search
+router.post('/search', userController.searchUser)
+
 
 module.exports = router
