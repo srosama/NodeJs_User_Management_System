@@ -22,5 +22,8 @@ router.post('/delete/:id', userController.deleteUser)
 // Search
 router.post('/search', userController.searchUser)
 
+// about
+router.get('/about', userController.about)
+
 
 module.exports = router

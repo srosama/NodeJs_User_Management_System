@@ -163,3 +163,9 @@ exports.searchUser = async (req, res) => {
     }
   
   }
+
+
+// about
+exports.about = (req, res) => {
+    res.render("about")
+}
